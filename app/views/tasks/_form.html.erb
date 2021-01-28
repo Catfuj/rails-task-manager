@@ -1,0 +1,24 @@
+<!-- Using a partial allow to not code two time the same html code. It is practicle in case of update of this page
+No risk to forgot to update one of these 2 pages -->
+
+<%= simple_form_for(@task) do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :detail %>
+    <%= f.text_area :detail, class: 'form-control' %>
+  </div>
+
+  <% unless f.object.new_record? %>
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :completed %> Completed
+      </label>
+    </div>
+  <% end %>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
